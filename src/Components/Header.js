@@ -1,17 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 const Header = () => {
     return (
         <header>
             <ul>
                 <li>
-                    <a href="/">Movies</a> 
+                    <Link to="/">Movies</Link> 
                 </li>
                 <li>
-                    <a href="/tv">TV</a> 
+                    <Link to="/tv">TV</Link> 
                 </li>
                 <li>
-                    <a href="/search">Search</a> 
+                    <Link to="/search">Search</Link> 
                 </li>
             </ul>
         </header>
