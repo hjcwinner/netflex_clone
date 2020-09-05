@@ -1,11 +1,14 @@
 import React from 'react';
+
+import Router from './Components/Router'
+
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <h1>ha jung chul</h1>
-    </div>
+    <>
+      <Router />
+    </>
   );
 }
 
