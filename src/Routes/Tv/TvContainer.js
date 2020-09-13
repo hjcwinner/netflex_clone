@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { tvApi } from "../api"
+import { tvApi } from "../../api"
 
-const TV = () => {
+const TvContainer = () => {
     const[tv, setMovies] = useState({
         results: [],
         error: null,
     })
-
+    
     const getData = async () => {
         const [ results, error ] = await tvApi.today()
         setMovies({
@@ -14,11 +14,10 @@ const TV = () => {
             error
         })
     }
-
+    
     useEffect(() => {
         getData()
     }, [])
-
 
     return (
         <div>
@@ -27,4 +26,4 @@ const TV = () => {
     );
 };
 
-export default TV;
+export default TvContainer;

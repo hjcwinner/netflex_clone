@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { movieApi } from "../api"
+import { movieApi } from "../../api"
 
-const Home = () => {
+const MovieContainer = () => {
     const [movies, setMovies] = useState({
         results: [],
         error: null,
@@ -19,7 +19,6 @@ const Home = () => {
         getData()
     }, [])
 
-
     return (
         <div>
             <h1>{movies.results.length}</h1>
@@ -27,4 +26,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default MovieContainer;
