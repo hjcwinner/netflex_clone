@@ -3,9 +3,29 @@ import PropTypes from 'prop-types';
 
 const MoviePresenter = ({nowPlaying, popular, topRate, loading, error}) => {
     return (
-        <div>
-            <h1>{nowPlaying.length}</h1>
-        </div>
+      <div>
+          {nowPlaying && nowPlaying.length > 0 && (
+              <div>
+                 {nowPlaying.map((movie) => (
+                     <span>{movie.title}</span>
+                 ))}
+              </div>
+          )}
+          {popular && popular.length > 0 && (
+              <div>
+                  {popular.map((movie) => (
+                      <span>{movie.title}</span>
+                  ))}
+              </div>
+          )}
+          {topRate && topRate.length > 0 && (
+              <div>
+                  {topRate.map((movie) => (
+                      <span>{movie.title}</span>
+                  ))}
+              </div>
+          )}
+      </div>
     );
 };
 
