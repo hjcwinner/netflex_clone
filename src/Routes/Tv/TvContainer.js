@@ -1,33 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import { tvApi } from "../../api"
+import TvPresenter from "./TvPresenter"
 
 const TvContainer = () => {
     const [tv, setTvs] = useState({
         today : [],
         popular : [],
         topRate : [],
-        thisweek : [],
+        thisWeek : [],
         todayError : null,
         popularError : null,
         topRateError : null,
-        thisweekError : null
+        thisWeekError : null
     })
     
     const getData = async () => {
         const [ today, todayError ] = await tvApi.today()
         const [ popular, popularError ] = await tvApi.popular()
         const [ topRate, topRateError ] = await tvApi.topRate()
-        const [ thisweek, thisweekError ] = await tvApi.thisweek()
+        const [ thisWeek, thisWeekError ] = await tvApi.thisweek()
 
         setTvs({
             today: today,
             popular: popular,
             topRate : topRate,
-            thisweek : thisweek,
+            thisWeek : thisWeek,
             todayError : todayError,
             popularError : popularError,
             topRateError : topRateError,
-            thisweekError : thisweekError
+            thisWeekError : thisWeekError
         })
     }
     
@@ -36,9 +37,7 @@ const TvContainer = () => {
     }, [])
 
     return (
-        <div>
-            <h1>tvdata is {tv.results.length}</h1>
-        </div>
+           <TvPresenter {...tv} />
     );
 };
 

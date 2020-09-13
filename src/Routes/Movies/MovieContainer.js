@@ -1,30 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import { movieApi } from "../../api"
+import MoviePresenter from "./MoviePresenter"
 
 const MovieContainer = () => {
     const [movies, setMovies] = useState({
         nowPlaying: [],
         popular: [],
-        upcoming: [],
+        topRate: [],
         nowPlayingError: null,
         popularError: null,
-        upcomingError: null,
+        topRateError: null,
         loading: true,
     })
 
     const getData = async () => {
         const [ nowPlaying, nowPlayingError ] = await movieApi.nowPlaying()
         const [ popular, popularError ] = await movieApi.popular()
-        const [ upcoming, upcomingError ] = await movieApi.upcoming()
+        const [ topRate, topRateError ] = await movieApi.topRated()
         
 
         setMovies({
           nowPlaying: nowPlaying,
           popular: popular,
-          upcoming: upcoming,
+          topRate: topRate,
           nowPlayingError : nowPlayingError,
           popularError : popularError,
-          upcomingError : upcomingError
+          topRateError : topRateError
         })
     }
 
@@ -33,9 +34,7 @@ const MovieContainer = () => {
     }, [])
 
     return (
-        <div>
-            <h1>{movies.results.length}</h1>
-        </div>
+        <MoviePresenter {...movies} />
     );
 };
 
