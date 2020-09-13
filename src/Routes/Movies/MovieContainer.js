@@ -3,15 +3,28 @@ import { movieApi } from "../../api"
 
 const MovieContainer = () => {
     const [movies, setMovies] = useState({
-        results: [],
-        error: null,
+        nowPlaying: [],
+        popular: [],
+        upcoming: [],
+        nowPlayingError: null,
+        popularError: null,
+        upcomingError: null,
+        loading: true,
     })
 
     const getData = async () => {
-        const [ results, error ] = await movieApi.nowPlaying()
+        const [ nowPlaying, nowPlayingError ] = await movieApi.nowPlaying()
+        const [ popular, popularError ] = await movieApi.popular()
+        const [ upcoming, upcomingError ] = await movieApi.upcoming()
+        
+
         setMovies({
-            results: results,
-            error
+          nowPlaying: nowPlaying,
+          popular: popular,
+          upcoming: upcoming,
+          nowPlayingError : nowPlayingError,
+          popularError : popularError,
+          upcomingError : upcomingError
         })
     }
 

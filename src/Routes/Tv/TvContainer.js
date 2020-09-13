@@ -2,16 +2,32 @@ import React, { useEffect, useState } from 'react';
 import { tvApi } from "../../api"
 
 const TvContainer = () => {
-    const[tv, setMovies] = useState({
-        results: [],
-        error: null,
+    const [tv, setTvs] = useState({
+        today : [],
+        popular : [],
+        topRate : [],
+        thisweek : [],
+        todayError : null,
+        popularError : null,
+        topRateError : null,
+        thisweekError : null
     })
     
     const getData = async () => {
-        const [ results, error ] = await tvApi.today()
-        setMovies({
-            results: results,
-            error
+        const [ today, todayError ] = await tvApi.today()
+        const [ popular, popularError ] = await tvApi.popular()
+        const [ topRate, topRateError ] = await tvApi.topRate()
+        const [ thisweek, thisweekError ] = await tvApi.thisweek()
+
+        setTvs({
+            today: today,
+            popular: popular,
+            topRate : topRate,
+            thisweek : thisweek,
+            todayError : todayError,
+            popularError : popularError,
+            topRateError : topRateError,
+            thisweekError : thisweekError
         })
     }
     
