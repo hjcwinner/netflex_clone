@@ -42,7 +42,6 @@ const SLink = styled(Link)`
 `;
 
 export default withRouter(({ location : { pathname }}) => (
-
         <Head>
             <List>
                 <Item current={pathname === "/"}>
@@ -56,5 +55,4 @@ export default withRouter(({ location : { pathname }}) => (
                 </Item>
             </List>
         </Head>
-
 ));
