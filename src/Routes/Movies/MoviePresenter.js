@@ -9,6 +9,10 @@ const Container = styled.div`
     padding : 0px 10px;
 `;
 
+// const Section = styled.Section`
+//     padding : 0px 10px;
+// `;
+
 const MoviePresenter = ({nowPlaying, popular, topRate, upcoming, loading, error}) => {
     return (
         loading 

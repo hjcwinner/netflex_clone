@@ -29,12 +29,15 @@ export const movieApi = {
     nowPlaying: () => getAnything("/movie/now_playing"),
     popular: () => getAnything("/movie/popular"),
     topRated: () => getAnything("/movie/top_rated"),
-    upcoming: () => getAnything("/movie/upcoming")
+    upcoming: () => getAnything("/movie/upcoming"),
+    search: (query) => getAnything("/search/movie", {query})
 }
 
 export const tvApi = {
     today : () => getAnything("/tv/airing_today"),
     popular : () => getAnything("/tv/popular"),
     topRate : () => getAnything("/tv/top_rated"),
-    thisweek : () => getAnything("/tv/on_the_air")
+    thisweek : () => getAnything("/tv/on_the_air"),
+    search: (query) => getAnything("/search/tv", {query})
 }
+
