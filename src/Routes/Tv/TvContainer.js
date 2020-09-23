@@ -11,7 +11,8 @@ const TvContainer = () => {
         todayError : null,
         popularError : null,
         topRateError : null,
-        thisWeekError : null
+        thisWeekError : null,
+        loading : true
     })
     
     const getData = async () => {
@@ -28,7 +29,8 @@ const TvContainer = () => {
             todayError : todayError,
             popularError : popularError,
             topRateError : topRateError,
-            thisWeekError : thisWeekError
+            thisWeekError : thisWeekError,
+            loading : false
         })
     }
     

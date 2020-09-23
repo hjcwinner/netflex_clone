@@ -1,31 +1,51 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Section from '../../Components/Section'
+import styled from 'styled-components'
+import Loader from '../../Components/Loader'
 
-const MoviePresenter = ({nowPlaying, popular, topRate, loading, error}) => {
+const Container = styled.div`
+    padding : 0px 10px;
+`;
+
+const MoviePresenter = ({nowPlaying, popular, topRate, upcoming, loading, error}) => {
     return (
-      <div>
-          {nowPlaying && nowPlaying.length > 0 && (
-              <div>
-                 {nowPlaying.map((movie) => (
-                     <span>{movie.title}</span>
-                 ))}
-              </div>
-          )}
-          {popular && popular.length > 0 && (
-              <div>
-                  {popular.map((movie) => (
-                      <span>{movie.title}</span>
-                  ))}
-              </div>
-          )}
-          {topRate && topRate.length > 0 && (
-              <div>
-                  {topRate.map((movie) => (
-                      <span>{movie.title}</span>
-                  ))}
-              </div>
-          )}
-      </div>
+        loading 
+        ? (<Loader />)
+        : (  
+        <Container>
+            {nowPlaying && nowPlaying.length > 0 && (
+                <Section title="Now Playing">
+                   {nowPlaying.map(movie => (
+                       <span>{movie.title}</span>
+                   ))}
+                </Section>
+            )}
+            {popular && popular.length > 0 && (
+                <Section title="Popular">
+                    {popular.map((movie) => (
+                        <span>{movie.title}</span>
+                    ))}
+                </Section>
+            )}
+            {topRate && topRate.length > 0 && (
+                <Section title="Top Rated">
+                    {topRate.map((movie) => (
+                        <span>{movie.title}</span>
+                    ))}
+                </Section>
+            )}
+            {upcoming && upcoming.length > 0 && (
+                <Section title="Upcoming">
+                    {upcoming.map((movie) => (
+                        <span>{movie.title}</span>
+                    ))}
+                </Section>
+            )}
+            
+        </Container>
+        )
+    
     );
 };
 

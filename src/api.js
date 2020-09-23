@@ -28,7 +28,8 @@ const getAnything = async (path, params = {}) => {
 export const movieApi = {
     nowPlaying: () => getAnything("/movie/now_playing"),
     popular: () => getAnything("/movie/popular"),
-    topRated: () => getAnything("/movie/top_rated")
+    topRated: () => getAnything("/movie/top_rated"),
+    upcoming: () => getAnything("/movie/upcoming")
 }
 
 export const tvApi = {

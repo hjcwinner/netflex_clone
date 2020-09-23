@@ -1,39 +1,49 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Section from '../../Components/Section'
+import styled from 'styled-components'
+import Loader from '../../Components/Loader'
+
+const Container = styled.div`
+    padding: 0px 10px;
+`;
 
 const TvPresenter = ({today, popular, topRate, thisWeek, loading, error}) => {
     return (
-        <div>
+        loading 
+        ? (<Loader />)
+        : (
+        <Container>
             {today && today.length > 0 && (
-                <div>
+                <Section title="Today">
                     {today.map((tv) => (
                         <span>{tv.name}</span>
                     ))}
-                </div>
+                </Section>
             )}
             {popular && popular.length > 0 && (
-                <div>
+                <Section title="Popular">
                     {popular.map((tv) => (
                         <span>{tv.name}</span>
                     ))}
-                </div>
+                </Section>
             )}
             {topRate && topRate.length > 0 && (
-                <div>
+                <Section title="Top Rate">
                     {topRate.map((tv) => (
                         <span>{tv.name}</span>
                     ))}
-                </div>
+                </Section>
             )}
             {thisWeek && thisWeek.length > 0 && (
-                <div>
+                <Section title="ThisWeek">
                     {thisWeek.map((tv) => (
                         <span>{tv.name}</span>
                     ))}
-                </div>
-            ) }
-            
-        </div>
+                </Section>
+            ) }   
+        </Container>
+        )   
     );
 };
 

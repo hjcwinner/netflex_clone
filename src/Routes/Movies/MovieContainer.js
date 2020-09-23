@@ -7,9 +7,11 @@ const MovieContainer = () => {
         nowPlaying: [],
         popular: [],
         topRate: [],
+        upcoming: [],
         nowPlayingError: null,
         popularError: null,
         topRateError: null,
+        upcomingError: null,
         loading: true,
     })
 
@@ -17,15 +19,19 @@ const MovieContainer = () => {
         const [ nowPlaying, nowPlayingError ] = await movieApi.nowPlaying()
         const [ popular, popularError ] = await movieApi.popular()
         const [ topRate, topRateError ] = await movieApi.topRated()
+        const [ upcoming, upcomingError] = await movieApi.upcoming()
         
 
         setMovies({
           nowPlaying: nowPlaying,
           popular: popular,
           topRate: topRate,
+          upcoming: upcoming,
           nowPlayingError : nowPlayingError,
           popularError : popularError,
-          topRateError : topRateError
+          topRateError : topRateError,
+          upcomingError: upcomingError,
+          loading : false
         })
     }
 
