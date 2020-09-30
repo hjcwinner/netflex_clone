@@ -36,12 +36,15 @@
 
 import React, { useState } from 'react';
 import SearchPresenter from './SearchPresenter'
+import { movieApi, tvApi } from '../../api'
 
 const SearchContainer = () => {
     const [ keyword, setKeyword] = useState("")
     const [ results, setResults] = useState({
         movieResults : [],
         tvResults : [],
+        movieError : null,
+        tvError : null,
         loading : false,
         error : null
     })
@@ -52,7 +55,24 @@ const SearchContainer = () => {
     }
 
     const onSubmit = async () => {
+        // networking 태우기
+        setResults({
+            loading : true,
+        })
 
+        const [ movieResults, movieError ] = await movieApi.search(keyword)
+        const [ tvResults, tvError] = await tvApi.search(keyword)
+
+        setResults({
+            movieResults : movieResults,
+            tvResults : tvResults,
+            movieError : movieError,
+            tvError : tvError,
+            loading : false,
+        })
+
+
+        console.log("search is ", movieResults)
     }
 
 
