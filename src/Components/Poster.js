@@ -53,25 +53,25 @@ const Year = styled.span`
 const Poster = ({id, title, rating, year, imageUrl, isMovie=false}) => {
     return (
         <Link to={isMovie ? `/movie/${id}` : `/show/${id}`}>
-        <Container>
-            <ImageContainer>
-                <Image bgurl={
-                    imageUrl
-                    ? (`https://image.tmdb.org/t/p/w500${imageUrl}`)
-                    : (require("../assets/noimage.png"))
-                }/>
-                <Rating>    
-                    <span role="img" aria-label="rating">👍🏼 </span>
-                     {rating / 10} 
-                </Rating>
-            </ImageContainer>
-            <Title>
-                {title.length > 18 ? `${title.substring(0, 18)}...` : title}
-            </Title>
-            <Year>
-                {year}
-            </Year>
-        </Container>
+            <Container>
+                <ImageContainer>
+                    <Image bgurl={
+                        imageUrl
+                        ? (`https://image.tmdb.org/t/p/w500${imageUrl}`)
+                        : (require("../assets/noimage.png"))
+                    }/>
+                    <Rating>    
+                        <span role="img" aria-label="rating">👍🏼 </span>
+                        {rating / 10} 
+                    </Rating>
+                </ImageContainer>
+                <Title>
+                    {title.length > 18 ? `${title.substring(0, 18)}...` : title}
+                </Title>
+                <Year>
+                    {year}
+                </Year>
+            </Container>
         </Link>
     );
 };
