@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
     font-size: 12px;
@@ -49,8 +50,9 @@ const Year = styled.span`
 
 
 
-const Poster = ({id, title, rating, year, imageUrl}) => {
+const Poster = ({id, title, rating, year, imageUrl, isMovie=false}) => {
     return (
+        <Link to={isMovie ? `/movie/${id}` : `/show/${id}`}>
         <Container>
             <ImageContainer>
                 <Image bgurl={
@@ -70,6 +72,7 @@ const Poster = ({id, title, rating, year, imageUrl}) => {
                 {year}
             </Year>
         </Container>
+        </Link>
     );
 };
 
@@ -78,7 +81,8 @@ Poster.propTypes = {
     title : PropTypes.string.isRequired,
     rating : PropTypes.number,
     year : PropTypes.string,
-    imageUrl : PropTypes.string
+    imageUrl : PropTypes.string,
+    isMovie : PropTypes.bool
 };
 
 export default Poster;
