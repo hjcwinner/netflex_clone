@@ -46,10 +46,26 @@ const SearchContainer = () => {
         error : null
     })
 
-    return (
+    const onChange = (e) => {
+        setKeyword(e.target.value)
+        console.log(e.target.value)
+    }
 
-        <SearchPresenter />
+    const onSubmit = async () => {
+
+    }
+
+
+
+    return (
+        <SearchPresenter 
+            {...results}
+            keyword={keyword}
+            onChange={onChange}
+            onSubmit={onSubmit}
+        />
     );
+
 };
 
 export default SearchContainer;
