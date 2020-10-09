@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Loader from '../../Components/Loader'
 import styled from 'styled-components'
+import Helmet from 'react-helmet'
 
 
 const Container = styled.div`
@@ -81,9 +82,25 @@ const Similar = styled.div`
 const DetailPresenter = ({result, similar,keyword, loading, error}) => {
     return (
         loading
-        ? (<Loader />)
+        ? 
+            <>
+            <Loader />
+            <Helmet>
+                <title>Loading | Netflix Clone</title>
+            </Helmet>
+            </>
         : (
             <Container>
+                <Helmet>
+                    <title>
+                        {result.original_title 
+                            ? result.original_title
+                            : result.original_name
+
+                        }
+                        | Netflex Clone
+                    </title>
+                </Helmet>
                 <Backdrop 
                     bgImgage={`https://image.tmdb.org/t/p/w500${result.backdrop_path}`}
                 />

@@ -50,6 +50,7 @@ import styled from 'styled-components'
 import Loader from '../../Components/Loader'
 import Section from '../../Components/Section'
 import Poster from '../../Components/Poster'
+import { Helmet } from 'react-helmet';
 
 const Container = styled.div`
     padding : 0px 20px;
@@ -77,8 +78,18 @@ const SearchPresenter = ({movieResults, tvResults, keyword, onChange, onSubmit, 
                 />    
             </Form>
             {loading 
-                ? (<Loader />)
+                ? <>
+                       <Loader />
+                       <Helmet>
+                           <title>Loading | Netflix Clone</title>
+                       </Helmet>
+                  </>
                 : <>
+                    <Helmet>
+                        <title>
+                            Search | Netflix Clone
+                        </title>
+                    </Helmet>
                     {movieResults && movieResults.length > 0 && (
                         <Section title="Movie Results">
                             {movieResults.map((movie) => (

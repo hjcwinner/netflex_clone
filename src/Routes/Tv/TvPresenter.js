@@ -4,6 +4,7 @@ import Section from '../../Components/Section'
 import styled from 'styled-components'
 import Loader from '../../Components/Loader'
 import Poster from '../../Components/Poster'
+import Helmet from 'react-helmet'
 
 const Container = styled.div`
     padding: 0px 10px;
@@ -12,9 +13,19 @@ const Container = styled.div`
 const TvPresenter = ({today, popular, topRate, thisWeek, loading, error}) => {
     return (
         loading 
-        ? (<Loader />)
+        ? <>
+            <Loader />
+            <Helmet>
+                <title>Loading | Netflix clone</title>
+            </Helmet>
+        </>
         : (
         <Container>
+            <Helmet>
+                <title>
+                    TVs | Netflex clone
+                </title>
+            </Helmet>
             {today && today.length > 0 && (
                 <Section title="Today">
                     {today.map((tv) => (

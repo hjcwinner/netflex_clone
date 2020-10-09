@@ -4,6 +4,7 @@ import Section from '../../Components/Section'
 import styled from 'styled-components'
 import Loader from '../../Components/Loader'
 import Poster from '../../Components/Poster'
+import Helmet from 'react-helmet'
 
 const Container = styled.div`
     padding : 0px 10px;
@@ -16,9 +17,20 @@ const Container = styled.div`
 const MoviePresenter = ({nowPlaying, popular, topRate, upcoming, loading, error}) => {
     return (
         loading 
-        ? (<Loader />)
+        ? 
+            <>
+                <Loader />
+                <Helmet>
+                    <title>Loading | Netflix Clone</title>
+                </Helmet>
+            </>
         : (  
         <Container>
+            <Helmet>
+                <title>
+                    Movies | Netflex Clone
+                </title>
+            </Helmet>
             {nowPlaying && nowPlaying.length > 0 && (
                 <Section title="Now Playing">
                    {nowPlaying.map(movie => (
