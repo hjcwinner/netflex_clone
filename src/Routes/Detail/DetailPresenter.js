@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Loader from '../../Components/Loader'
 import styled from 'styled-components'
+import { movieApi } from '../../api';
 
 const Container = styled.div`
     height : calc(100vh - 50px);
@@ -64,8 +65,6 @@ const Divider = styled.span`
     margin : 0px 10px;
 `;
 
-
-
 const Overview = styled.p`
     font-size : 15px;
     opacity : 0.7;
@@ -74,7 +73,12 @@ const Overview = styled.p`
     margin-top : 20px;
 `;
 
-const DetailPresenter = ({result, loading, error}) => {
+
+const Similar = styled.div`
+    font-size : 15px
+`;
+
+const DetailPresenter = ({result, similar,keyword, loading, error}) => {
     return (
         loading
         ? (<Loader />)
@@ -118,7 +122,22 @@ const DetailPresenter = ({result, loading, error}) => {
                     </Item>
                     <Overview>
                         {result.overview} 
-                    </Overview>    
+                    </Overview>
+                    <div>
+                        <div>{similar.map((sim) => (
+                            <Similar>
+                                {sim.title}
+                            </Similar>
+                        ))}</div>
+                    </div>
+                    <div>
+                        <div>{keyword.map((key) => (
+                            <div>
+                                {key.name}
+                            </div>
+                        ))}
+                        </div>
+                    </div>  
                     </Data>
                     
                 </Content>
