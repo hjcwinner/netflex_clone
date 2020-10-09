@@ -29,12 +29,10 @@ const DetailContainer = ({pathname}) => {
     useEffect(() => {
         //networking
         getData()
-    }, [id])
+    })
 
-    return (
-        <div>
-            <h1>{id}</h1>
-        </div>
+    return ( 
+            <DetailPresenter {...item}/>
     );
 };
 
