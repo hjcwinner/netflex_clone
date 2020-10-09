@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Loader from '../../Components/Loader'
 import styled from 'styled-components'
-import { movieApi } from '../../api';
+
 
 const Container = styled.div`
     height : calc(100vh - 50px);
