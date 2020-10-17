@@ -8,4 +8,4 @@
 ## 완성 화면
 ----------
 
-![movie](https://user-images.githubusercontent.com/67583080/96332341-69c00080-109e-11eb-8537-1fc7988b0a28.PNG)![tv](https://user-images.githubusercontent.com/67583080/96332342-6af12d80-109e-11eb-9bcb-17dd1e188c55.PNG)![search](https://user-images.githubusercontent.com/67583080/96332343-6af12d80-109e-11eb-9b1e-5ac67201c730.PNG)![detail](https://user-images.githubusercontent.com/67583080/96332345-6b89c400-109e-11eb-9479-9bc5f51e8a8c.PNG)
+![movie](https://user-images.githubusercontent.com/67583080/96332402-b7d50400-109e-11eb-84b7-49b11b62670b.PNG)![tv](https://user-images.githubusercontent.com/67583080/96332403-b9063100-109e-11eb-8676-2fcd1e556f76.PNG)![search](https://user-images.githubusercontent.com/67583080/96332404-b99ec780-109e-11eb-943a-d6c7e08b0dfc.PNG)![detail](https://user-images.githubusercontent.com/67583080/96332406-b99ec780-109e-11eb-90ca-8754085c967c.PNG)
