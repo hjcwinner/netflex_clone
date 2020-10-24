@@ -46,7 +46,7 @@ const DetailContainer = ({pathname}) => {
     useEffect(() => {
         //networking
         getData()
-    })
+    }, [id])
 
     return ( 
             <DetailPresenter 
