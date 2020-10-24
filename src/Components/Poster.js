@@ -52,7 +52,7 @@ const Year = styled.span`
 
 const Poster = ({id, title, rating, year, imageUrl, isMovie=false}) => {
     return (
-        <Link to={isMovie ? `/movie/${id}` : `/show/${id}`}>
+        <Link to={isMovie ? `/movie/${id}` : `/tv/${id}`}>
             <Container>
                 <ImageContainer>
                     <Image bgurl={
@@ -66,7 +66,8 @@ const Poster = ({id, title, rating, year, imageUrl, isMovie=false}) => {
                     </Rating>
                 </ImageContainer>
                 <Title>
-                    {title.length > 18 ? `${title.substring(0, 18)}...` : title}
+                    {/* {title.length > 18 ? `${title.substring(0, 18)}...` : title} */}
+                    {title}
                 </Title>
                 <Year>
                     {year}

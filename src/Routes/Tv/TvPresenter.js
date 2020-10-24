@@ -13,23 +13,39 @@ const Container = styled.div`
 const TvPresenter = ({today, popular, topRate, thisWeek, loading, error}) => {
     return (
         loading 
-        ? <>
-            <Loader />
-            <Helmet>
-                <title>Loading | Netflix clone</title>
-            </Helmet>
-        </>
-        : (
-        <Container>
-            <Helmet>
-                <title>
-                    TVs | Netflex clone
-                </title>
-            </Helmet>
-            {today && today.length > 0 && (
-                <Section title="Today">
-                    {today.map((tv) => (
-                       <Poster
+        ?   
+        (
+            <>
+                <Loader />
+                <Helmet>
+                    <title>Loading | Netflix clone</title>
+                </Helmet>
+            </>
+        ) : (
+            <Container>
+                <Helmet>
+                    <title>
+                        TVs | Netflex clone
+                    </title>
+                </Helmet>
+                {today && today.length > 0 && (
+                    <Section title="Today">
+                        {today.map((tv) => (
+                        <Poster
+                                key={tv.id}
+                                id={tv.id}
+                                title={tv.name}
+                                rating={tv.vote_average}
+                                year={tv.first_air_date}
+                                imageUrl={tv.backdrop_path}
+                            />
+                        ))}
+                    </Section>
+                )}
+                {popular && popular.length > 0 && (
+                    <Section title="Popular">
+                        {popular.map((tv) => (
+                            <Poster
                             key={tv.id}
                             id={tv.id}
                             title={tv.name}
@@ -37,52 +53,38 @@ const TvPresenter = ({today, popular, topRate, thisWeek, loading, error}) => {
                             year={tv.first_air_date}
                             imageUrl={tv.backdrop_path}
                         />
-                    ))}
-                </Section>
-            )}
-            {popular && popular.length > 0 && (
-                <Section title="Popular">
-                    {popular.map((tv) => (
-                        <Poster
-                        key={tv.id}
-                        id={tv.id}
-                        title={tv.name}
-                        rating={tv.vote_average}
-                        year={tv.first_air_date}
-                        imageUrl={tv.backdrop_path}
-                    />
-                    ))}
-                </Section>
-            )}
-            {topRate && topRate.length > 0 && (
-                <Section title="Top Rate">
-                    {topRate.map((tv) => (
-                        <Poster
-                        key={tv.id}
-                        id={tv.id}
-                        title={tv.name}
-                        rating={tv.vote_average}
-                        year={tv.first_air_date}
-                        imageUrl={tv.backdrop_path}
-                    />
-                    ))}
-                </Section>
-            )}
-            {thisWeek && thisWeek.length > 0 && (
-                <Section title="ThisWeek">
-                    {thisWeek.map((tv) => (
-                        <Poster
-                        key={tv.id}
-                        id={tv.id}
-                        title={tv.name}
-                        rating={tv.vote_average}
-                        year={tv.first_air_date}
-                        imageUrl={tv.backdrop_path}
-                    />
-                    ))}
-                </Section>
-            ) }   
-        </Container>
+                        ))}
+                    </Section>
+                )}
+                {topRate && topRate.length > 0 && (
+                    <Section title="Top Rate">
+                        {topRate.map((tv) => (
+                            <Poster
+                            key={tv.id}
+                            id={tv.id}
+                            title={tv.name}
+                            rating={tv.vote_average}
+                            year={tv.first_air_date}
+                            imageUrl={tv.backdrop_path}
+                        />
+                        ))}
+                    </Section>
+                )}
+                {thisWeek && thisWeek.length > 0 && (
+                    <Section title="ThisWeek">
+                        {thisWeek.map((tv) => (
+                            <Poster
+                            key={tv.id}
+                            id={tv.id}
+                            title={tv.name}
+                            rating={tv.vote_average}
+                            year={tv.first_air_date}
+                            imageUrl={tv.backdrop_path}
+                        />
+                        ))}
+                    </Section>
+                )}   
+            </Container>
         )   
     );
 };

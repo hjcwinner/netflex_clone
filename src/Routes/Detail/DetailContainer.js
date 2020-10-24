@@ -36,7 +36,7 @@ const DetailContainer = ({pathname}) => {
             resultError : resultError,
             similar : similar,
             similarError : similarError,
-            keyword : keyword.keywords,
+            keyword : keyword.keywords ? keyword.keywords : keyword.results,
             keywordError : keywordError,
             loading : false
         })

@@ -19,7 +19,7 @@ const TvContainer = () => {
         const [ today, todayError ] = await tvApi.today()
         const [ popular, popularError ] = await tvApi.popular()
         const [ topRate, topRateError ] = await tvApi.topRate()
-        const [ thisWeek, thisWeekError ] = await tvApi.thisweek()
+        const [ thisWeek, thisWeekError ] = await tvApi.thisWeek()
 
         setTvs({
             today: today,

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Loader from '../../Components/Loader'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
+import Poster from '../../Components/Poster'
+import Section from '../../Components/Section'
 
 
 const Container = styled.div`
@@ -75,19 +77,16 @@ const Overview = styled.p`
 `;
 
 
-const Similar = styled.div`
-    font-size : 15px
-`;
 
 const DetailPresenter = ({result, similar,keyword, loading, error}) => {
     return (
         loading
         ? 
             <>
-            <Loader />
-            <Helmet>
-                <title>Loading | Netflix Clone</title>
-            </Helmet>
+                <Loader />
+                <Helmet>
+                    <title>Loading | Netflix Clone</title>
+                </Helmet>
             </>
         : (
             <Container>
@@ -140,21 +139,44 @@ const DetailPresenter = ({result, similar,keyword, loading, error}) => {
                     <Overview>
                         {result.overview} 
                     </Overview>
-                    <div>
-                        <div>{similar.map((sim) => (
-                            <Similar>
-                                {sim.title}
-                            </Similar>
-                        ))}</div>
-                    </div>
-                    <div>
+                    {similar && similar.length>0 && (
+                         <Section title="Similar">
+                         {similar.title 
+                         ? <>
+                             {similar.map((sim) => (
+                             <Poster 
+                                 key={sim.id}
+                                 id={sim.id}
+                                 title={sim.title}
+                                 rating={sim.vote_average}
+                                 year={sim.release_date}
+                                 imageUrl={sim.poster_path}
+                             />
+                             ))}
+                           </> 
+                         : <>
+                             {similar.map((sim) => (
+                             <Poster 
+                                 key={sim.id}
+                                 id={sim.id}
+                                 title={sim.name}
+                                 rating={sim.vote_average}
+                                 year={sim.first_air_date}
+                                 imageUrl={sim.poster_path}
+                             />
+                             ))}
+                           </>
+                         } 
+                     </Section>   
+                    )}
+                    {/* <div>
                         <div>{keyword.map((key) => (
                             <div>
                                 {key.name}
                             </div>
                         ))}
                         </div>
-                    </div>  
+                    </div>   */}
                     </Data>
                     
                 </Content>
@@ -166,7 +188,9 @@ const DetailPresenter = ({result, similar,keyword, loading, error}) => {
 DetailPresenter.propTypes = {
     result : PropTypes.object,
     loading : PropTypes.bool.isRequired,
-    error : PropTypes.string
+    error : PropTypes.string,
+    similar : PropTypes.array,
+    keyword : PropTypes.array
 };
 
 export default DetailPresenter;
