@@ -20,7 +20,7 @@ const DetailContainer = ({pathname}) => {
 
     const getData = async() => {
         const [ result, resultError] = location.pathname.includes("/movie/")
-        ? await movieApi.detail(id)
+        ? await tvApi.detail(id)
         : await tvApi.detail(id)
 
         const [ similar, similarError] = location.pathname.includes("/movie/")
