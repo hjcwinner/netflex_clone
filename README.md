@@ -9,6 +9,9 @@
 ----------
 ![movie](https://user-images.githubusercontent.com/67583080/96332484-30d45b80-109f-11eb-85a0-9c80dad0eefd.PNG)![tv](https://user-images.githubusercontent.com/67583080/96332487-32058880-109f-11eb-9b0b-d9ab3ed8c0a6.PNG)![search](https://user-images.githubusercontent.com/67583080/96332489-32058880-109f-11eb-8c49-98d6e4759078.PNG)![detail](https://user-images.githubusercontent.com/67583080/96332490-329e1f00-109f-11eb-978d-6c9c92741de8.PNG)
 
+## 배포하기
+배포주소 : https://vigilant-swanson-a151b2.netlify.app/#/
+
 ## 활용한 기술
 ----------
 * react-router-dom{ HashRouter as Router, Route, Switch, Redirect, Link, withRouter, useParams, useLocation }
